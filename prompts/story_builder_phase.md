@@ -33,7 +33,7 @@ Quality Scoring -> Story Builder -> Album Builder
 ## Context
 
 - This is a generic media curation engine.
-- Trip-specific config lives under folders such as `input_data/trips/bali/config/default.yaml`.
+- Trip-specific config lives under folders such as `input_data/trips/sample/config/default.yaml`.
 - Workflow outputs go under the configured `MemoryCurator/` workflow root.
 - Each phase must consume an upstream manifest and generate a manifest for the next phase.
 - Story Builder consumes the quality-selected media manifest:

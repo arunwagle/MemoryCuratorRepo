@@ -134,7 +134,7 @@ selected_timeline:
       min_segment_seconds: 2
       max_segment_seconds: 14
   output_dir: MemoryCurator/08 Selected Timeline
-  exports_dir: input_data/trips/bali/curated/08 Selected Timeline/exports
+  exports_dir: input_data/trips/sample/curated/08 Selected Timeline/exports
   render:
     enabled: yes
     width: 1920

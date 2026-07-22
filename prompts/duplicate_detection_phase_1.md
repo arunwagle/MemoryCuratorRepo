@@ -17,9 +17,9 @@ Do not treat duplicate detection as a later phase for this project. The current 
 ## Context
 
 - This is a generic media curation engine.
-- Trip-specific data and config live under folders such as `input_data/trips/bali/`.
-- Example source media folder: `input_data/trips/bali/data/rafting`.
-- Example trip config: `input_data/trips/bali/config/default.yaml`.
+- Trip-specific data and config live under folders such as `input_data/trips/sample/`.
+- Example source media folder: `input_data/trips/sample/data/rafting`.
+- Example trip config: `input_data/trips/sample/config/default.yaml`.
 - Workflow outputs go under `MemoryCurator/`.
 - Original source media must never be moved, deleted, renamed, or modified.
 - Reset must clean generated workflow outputs. It should also restore legacy reversible moves from older runs if those folders exist.
@@ -180,20 +180,20 @@ Trip config example:
 ```yaml
 project:
   name: Bali Memory Curator
-  trip_slug: bali
-  trip_root: input_data/trips/bali
-  data_root: input_data/trips/bali/data
+  trip_slug: sample
+  trip_root: input_data/trips/sample
+  data_root: input_data/trips/sample/data
   workflow_root: MemoryCurator
 
 inventory:
   media_sets:
     rafting:
       enabled: yes
-      input_dir: input_data/trips/bali/data/rafting
+      input_dir: input_data/trips/sample/data/rafting
       output_csv: MemoryCurator/01 Inventory/rafting_inventory.csv
     atv:
       enabled: no
-      input_dir: input_data/trips/bali/data/atv
+      input_dir: input_data/trips/sample/data/atv
       output_csv: MemoryCurator/01 Inventory/atv_inventory.csv
 
 modules:

@@ -6,6 +6,16 @@ The project is config-driven: change the trip YAML and activity folders, and the
 
 > Project status: **alpha**. The core pipeline is usable, but scoring, selection, and video-editing taste will keep evolving.
 
+## Why This Exists
+
+MemoryCurator started with a familiar post-trip problem: the memories were amazing, but the media folder was chaos. Photos, GoPro clips, phone videos, tour-company shots, screenshots, duplicates, near-duplicates, sideways clips, quiet moments, action scenes, and tiny friend moments were all mixed together.
+
+The real problem is that most tools think in files, while people remember moments. Nobody remembers a trip as `IMG_2623.HEIC` or `GX010679.MP4`; they remember walking to the raft, the first rapid, the ATV tunnel, the beach walk, the waterfall, the dinner table, and the group photo at the end.
+
+MemoryCurator is an experiment in building a reusable curation engine that understands activities, chronology, people, quality, emotion, and story well enough to create albums, reels, timelines, and documentaries without manually reviewing every asset.
+
+For the fuller project story, product thinking, and technical walkthrough, read [Designing an AI That Understands Memories, Not Just Media](docs/MEMORYCURATOR_PROJECT_STORY.md).
+
 ## What It Builds
 
 - Media inventory reports.
@@ -57,6 +67,24 @@ memory-curator --config input_data/trips/sample/config/default.yaml run-all --ex
 ```
 
 Dry runs write reports and edit decisions. `--execute` enables final PDF/video rendering for phases that support final outputs.
+
+## What `run-all` Does
+
+`run-all` executes the enabled phases in dependency order. Each phase writes explainable CSV/Markdown reports and machine-readable manifests that the next phase consumes. Original photos and videos are never deleted or moved.
+
+| Phase | What It Does | Key Outputs |
+| --- | --- | --- |
+| 01 Inventory | Scans enabled activity folders, tags media by folder/activity, captures file metadata, dimensions, duration, and embedded capture time when available. | Inventory CSVs and activity media manifests. |
+| 02 Duplicate Detection | Finds exact duplicates, near-duplicate photos, and visually similar videos using hashes, perceptual image matching, and frame sampling. | Duplicate groups, review reports, keeper manifest. |
+| 03 Quality Scoring | Scores photos and videos for quality, people visibility, activity fit, album value, reel value, and documentary value. | Quality score CSVs and phase keeper manifest. |
+| 05 Story Builder | Groups assets into chronological moments per activity using timing, activity context, and upstream scores. | Moments CSV and story summary reports. |
+| 06 Album Builder | Builds one trip-level PDF album selection across activities, emphasizing faces, memories, chronology, diversity, and clean layout. | Album selection reports and rendered PDF album when executed. |
+| 07 Video Processing | Analyzes videos for scenes, candidate clips, frame signals, audio signals, transcripts, and timeline metadata. | Scene/clip manifests, frame/audio analysis, thumbnails, timeline rows. |
+| 08 Selected Timeline | Chooses the best activity timeline segments in chronological order, removes weak/floor/sideways/repetitive clips, and preserves useful natural audio where configured. | Selected timeline manifests and activity timeline videos. |
+| 09 Reel Builder | Converts selected timelines into vertical 9:16 reels with activity-aware pacing, normal/fast sections, transitions, optional audio rules, and duration targets. | Instagram reels and longer highlight reels per activity. |
+| 10 Documentary Builder | Assembles long-form trip storytelling from upstream timelines and scores, focusing on narrative flow rather than reselecting raw clips. | Documentary plan, edit decisions, rendered documentary when executed. |
+
+Optional phases such as Media Intelligence can be skipped or extended through configuration. For deeper details on algorithms, scoring, and AI extension points, see [docs/TECHNICAL_DESIGN.md](docs/TECHNICAL_DESIGN.md).
 
 ## Common Commands
 

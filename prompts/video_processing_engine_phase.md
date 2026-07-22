@@ -679,7 +679,7 @@ modules:
     enabled: yes
 
 project:
-  curated_root: input_data/trips/bali/curated
+  curated_root: input_data/trips/sample/curated
 
 video_processing:
   dry_run: yes
@@ -687,19 +687,19 @@ video_processing:
   input_story_manifest: MemoryCurator/05 Story Builder/story_manifest.csv
   input_moment_assets: MemoryCurator/05 Story Builder/moment_assets.csv
   output_dir: MemoryCurator/07 Video Processing
-  curated_dir: input_data/trips/bali/curated/07 Video Processing
+  curated_dir: input_data/trips/sample/curated/07 Video Processing
   overwrite_policy: fail
   stages:
     scene_detection:
       enabled: yes
       output_dir: MemoryCurator/07 Video Processing/scene-detection
-      thumbnails_dir: input_data/trips/bali/curated/07 Video Processing/scene-detection/scene_thumbnails
+      thumbnails_dir: input_data/trips/sample/curated/07 Video Processing/scene-detection/scene_thumbnails
       target_scene_seconds: 45
       thumbnail_on_execute: no
     clip_segmentation:
       enabled: yes
       output_dir: MemoryCurator/07 Video Processing/clip-segmentation
-      clips_dir: input_data/trips/bali/curated/07 Video Processing/clip-segmentation/clips
+      clips_dir: input_data/trips/sample/curated/07 Video Processing/clip-segmentation/clips
       extract_on_execute: no
       reel_clip_seconds: 12
       documentary_clip_seconds: 45
@@ -710,13 +710,13 @@ video_processing:
     frame_analysis:
       enabled: yes
       output_dir: MemoryCurator/07 Video Processing/frame-analysis
-      frames_dir: input_data/trips/bali/curated/07 Video Processing/frame-analysis/frames
+      frames_dir: input_data/trips/sample/curated/07 Video Processing/frame-analysis/frames
       sample_every_seconds: 5
       extract_on_execute: no
     audio_analysis:
       enabled: yes
       output_dir: MemoryCurator/07 Video Processing/audio-analysis
-      waveforms_dir: input_data/trips/bali/curated/07 Video Processing/audio-analysis/waveforms
+      waveforms_dir: input_data/trips/sample/curated/07 Video Processing/audio-analysis/waveforms
       waveform_on_execute: no
       cache_enabled: yes
       window_seconds: 5
@@ -727,7 +727,7 @@ video_processing:
       local_model: base
       model: gpt-4o-transcribe
       output_dir: MemoryCurator/07 Video Processing/transcript
-      audio_dir: input_data/trips/bali/curated/07 Video Processing/transcript/audio
+      audio_dir: input_data/trips/sample/curated/07 Video Processing/transcript/audio
     timeline_builder:
       enabled: yes
       output_dir: MemoryCurator/07 Video Processing/timeline-builder

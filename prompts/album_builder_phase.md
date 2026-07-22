@@ -466,10 +466,10 @@ In execute mode, write final PDFs to the trip curated root:
 input_data/trips/<trip_slug>/curated/06 Album Builder/exports/
 ```
 
-Example for a trip whose slug is `bali`:
+Example for a trip whose slug is `sample`:
 
 ```text
-input_data/trips/bali/curated/06 Album Builder/exports/bali_enhanced_album.pdf
+input_data/trips/sample/curated/06 Album Builder/exports/sample_enhanced_album.pdf
 ```
 
 Selected image files should not be copied. PDF filenames should be safe, deterministic, and include trip slug plus album size.

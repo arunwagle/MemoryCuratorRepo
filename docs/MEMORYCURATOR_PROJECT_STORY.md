@@ -152,7 +152,7 @@ The goal is to make **MemoryCurator generic enough for other trips, reunions, we
 GitHub link:
 
 ```text
-<add GitHub repository URL here>
+https://github.com/arunwagle/MemoryCuratorRepo
 ```
 
 ## 10. Future Roadmap

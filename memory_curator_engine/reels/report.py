@@ -468,7 +468,7 @@ def segment_audit_cache_key(key: tuple[str, float, float, str]) -> str:
 
 def load_reel_config(config: Config, project_root: Path) -> ReelConfig:
     curated_root = config_value(config, "project.curated_root", "input_data/curated")
-    reel_id = str(config_value(config, "reel_builder.reel_id", "bali_rafting_highlight_60s"))
+    reel_id = str(config_value(config, "reel_builder.reel_id", "sample_activity_highlight"))
     style = str(config_value(config, "reel_builder.style", "highlight"))
     media_sets = parse_media_sets(config_value(config, "reel_builder.media_sets", ["rafting"]))
     profile_name = str(config_value(config, "reel_builder.activity_profile", next(iter(sorted(media_sets)), "default")))

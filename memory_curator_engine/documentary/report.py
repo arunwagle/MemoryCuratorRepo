@@ -211,7 +211,7 @@ MOMENT_CHAPTER_MAP = {
 
 def load_documentary_config(config: Config, project_root: Path) -> DocumentaryConfig:
     output_dir = resolve_project_path(project_root, config_value(config, "documentary_builder.output_dir", "MemoryCurator/10 Documentary Builder"))
-    render_exports_dir = resolve_project_path(project_root, config_value(config, "documentary_builder.render.exports_dir", "input_data/trips/bali/curated/10 Documentary Builder/exports"))
+    render_exports_dir = resolve_project_path(project_root, config_value(config, "documentary_builder.render.exports_dir", "input_data/trips/sample/curated/10 Documentary Builder/exports"))
     return DocumentaryConfig(
         enabled=parse_enabled(config_value(config, "modules.documentary_builder.enabled", False), "documentary_builder"),
         dry_run=parse_enabled(config_value(config, "documentary_builder.dry_run", True), "documentary_builder.dry_run"),

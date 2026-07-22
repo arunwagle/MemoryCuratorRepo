@@ -7,8 +7,8 @@ Do not implement AI-based aesthetic judgment yet. This phase should use determin
 ## Context
 
 - This is a generic media curation engine.
-- Trip-specific config lives under folders such as `input_data/trips/bali/config/default.yaml`.
-- Source media lives under folders such as `input_data/trips/bali/data/rafting`.
+- Trip-specific config lives under folders such as `input_data/trips/sample/config/default.yaml`.
+- Source media lives under folders such as `input_data/trips/sample/data/rafting`.
 - Workflow outputs go under the configured `MemoryCurator/` workflow root.
 - Duplicate Detection produces a downstream keep set at:
 

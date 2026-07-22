@@ -165,7 +165,7 @@ documentary_builder:
   selected_timeline_min_fraction: 0.55
   render:
     enabled: yes
-    exports_dir: input_data/trips/bali/curated/10 Documentary Builder/exports
+    exports_dir: input_data/trips/sample/curated/10 Documentary Builder/exports
     width: 1920
     height: 1080
     fps: 30

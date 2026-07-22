@@ -56,12 +56,12 @@ It should not reopen videos to perform broad scene detection, audio classificati
 ## Context
 
 - This is a generic media curation engine.
-- Trip-specific config lives under folders such as `input_data/trips/bali/config/default.yaml`.
-- Source media lives under folders such as `input_data/trips/bali/data/rafting`.
+- Trip-specific config lives under folders such as `input_data/trips/sample/config/default.yaml`.
+- Source media lives under folders such as `input_data/trips/sample/data/rafting`.
 - Metadata and reports go under the configured `MemoryCurator/` workflow root.
-- Generated reel media goes under the trip curated root, such as `input_data/trips/bali/curated/09 Reel Builder`.
+- Generated reel media goes under the trip curated root, such as `input_data/trips/sample/curated/09 Reel Builder`.
 - Reel reports and edit plans should be organized under activity and rank folders, such as `MemoryCurator/09 Reel Builder/rafting/rank_01_instagram_reel/`.
-- Rendered reels should be organized under activity export folders, such as `input_data/trips/bali/curated/09 Reel Builder/exports/rafting/`.
+- Rendered reels should be organized under activity export folders, such as `input_data/trips/sample/curated/09 Reel Builder/exports/rafting/`.
 - Original source media must never be deleted, moved, renamed, or edited.
 - Reel Builder may read original source videos only for rendering selected segments in execute mode.
 - Reel Builder must not perform broad raw-media analysis when rendering. It should only trim, crop, scale, speed-adjust, concatenate, and optionally add captions/audio based on existing metadata and the precomputed Reel Intelligence audit.
@@ -733,8 +733,8 @@ input_data/trips/<trip_slug>/curated/09 Reel Builder/exports/<activity>/
 Example:
 
 ```text
-input_data/trips/bali/curated/09 Reel Builder/exports/rafting/bali_rafting_reel_rank_01_instagram_reel_90s_vertical.mp4
-input_data/trips/bali/curated/09 Reel Builder/exports/rafting/bali_rafting_reel_rank_02_full_highlight_180s_vertical.mp4
+input_data/trips/sample/curated/09 Reel Builder/exports/rafting/sample_adventure_reel_rank_01_instagram_reel_90s_vertical.mp4
+input_data/trips/sample/curated/09 Reel Builder/exports/rafting/sample_adventure_reel_rank_02_full_highlight_180s_vertical.mp4
 ```
 
 ## CSV Schemas
@@ -874,9 +874,9 @@ modules:
     enabled: yes
 
 project:
-  trip_slug: bali
+  trip_slug: sample
   workflow_root: MemoryCurator
-  curated_root: input_data/trips/bali/curated
+  curated_root: input_data/trips/sample/curated
 
 reel_builder:
   dry_run: yes
@@ -888,7 +888,7 @@ reel_builder:
   input_audio_events: MemoryCurator/07 Video Processing/audio-analysis/audio_events.csv
   input_transcript_segments: MemoryCurator/07 Video Processing/transcript/transcript_segments.csv
   output_dir: MemoryCurator/09 Reel Builder
-  curated_dir: input_data/trips/bali/curated/09 Reel Builder
+  curated_dir: input_data/trips/sample/curated/09 Reel Builder
   media_sets: []   # empty means all enabled activities
   reels_per_activity: 2
   target_duration_seconds: 60
