@@ -1,0 +1,3 @@
+--index-url https://pypi-proxy.cloud.databricks.com/simple
+
+-r requirements.txt

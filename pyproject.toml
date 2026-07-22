@@ -1,0 +1,61 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "memory-curator"
+version = "0.1.0"
+description = "Config-driven media curation engine for trip albums, selected timelines, reels, and documentaries."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+authors = [
+  { name = "Arun Wagle" }
+]
+keywords = [
+  "media",
+  "photo",
+  "video",
+  "curation",
+  "travel",
+  "albums",
+  "reels",
+  "documentary",
+]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: End Users/Desktop",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: Apache Software License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Multimedia :: Graphics",
+  "Topic :: Multimedia :: Video",
+]
+dependencies = [
+  "Pillow>=10.0",
+  "pillow-heif>=0.15",
+  "ImageHash>=4.3",
+  "opencv-python>=4.9",
+  "imageio-ffmpeg>=0.6",
+  "moviepy>=2.2",
+  "librosa>=0.11",
+  "soundfile>=0.14",
+  "reportlab>=4.2",
+  "PyYAML>=6.0",
+  "torch>=2.3",
+  "open-clip-torch>=2.24",
+]
+
+[project.urls]
+Homepage = "https://github.com/arunwagle/MemoryCuratorRepo"
+Repository = "https://github.com/arunwagle/MemoryCuratorRepo"
+Issues = "https://github.com/arunwagle/MemoryCuratorRepo/issues"
+
+[project.scripts]
+memory-curator = "memory_curator_engine.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["memory_curator_engine*"]

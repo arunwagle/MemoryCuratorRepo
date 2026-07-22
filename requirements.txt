@@ -1,0 +1,15 @@
+Pillow>=10.0
+pillow-heif>=0.15
+ImageHash>=4.3
+opencv-python>=4.9
+imageio-ffmpeg>=0.6
+moviepy>=2.2
+librosa>=0.11
+soundfile>=0.14
+reportlab>=4.2
+PyYAML>=6.0
+
+# Optional semantic visual similarity backend for Selected Timeline.
+# Requires model weights to be available locally or downloadable at first use.
+torch>=2.3
+open-clip-torch>=2.24

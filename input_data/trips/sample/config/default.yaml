@@ -1,0 +1,138 @@
+project:
+  name: Sample Memory Curator Project
+  trip_slug: sample
+  trip_root: input_data/trips/sample
+  data_root: input_data/trips/sample/data
+  curated_root: input_data/trips/sample/curated
+  workflow_root: MemoryCurator
+
+execution:
+  parallel: yes
+  workers: auto
+
+inventory:
+  media_sets:
+    beach:
+      enabled: yes
+      activity_name: Beach
+      activity_profile: beach
+      input_dir: input_data/trips/sample/data/beach
+      output_csv: MemoryCurator/01 Inventory/beach_inventory.csv
+    adventure:
+      enabled: no
+      activity_name: Adventure
+      activity_profile: adventure
+      input_dir: input_data/trips/sample/data/adventure
+      output_csv: MemoryCurator/01 Inventory/adventure_inventory.csv
+
+modules:
+  inventory:
+    enabled: yes
+  duplicate_detection:
+    enabled: yes
+  quality_scoring:
+    enabled: yes
+  media_intelligence:
+    enabled: no
+  story_builder:
+    enabled: yes
+  album_builder:
+    enabled: yes
+  video_processing:
+    enabled: yes
+  selected_timeline:
+    enabled: yes
+  reel_builder:
+    enabled: yes
+  documentary_builder:
+    enabled: yes
+  time_capsule:
+    enabled: no
+
+activity_profiles:
+  beach:
+    optimization_goal: cinematic
+    maximize: [ocean, swimming, sunset, friends, landscape, cinematic]
+    minimize: [parking, waiting, menus, static]
+    required_context: [beach, ocean, water, swimming, shore, friends]
+    reject_context: [restaurant, temple, parking]
+    reel_weights:
+      activity: 0.26
+      adventure: 0.10
+      emotion: 0.22
+      story: 0.18
+      technical: 0.18
+      diversity: 0.06
+  adventure:
+    optimization_goal: action
+    maximize: [action, speed, motion, water, mud, excitement, group_reactions]
+    minimize: [static, waiting, parking, talking]
+    required_context: [action, movement, adventure, friends]
+    reject_context: [restaurant, menu, parking]
+    reel_weights:
+      activity: 0.44
+      adventure: 0.26
+      emotion: 0.14
+      story: 0.10
+      technical: 0.04
+      diversity: 0.02
+
+duplicate_detection:
+  exact_hash: yes
+  photo_near_duplicates: yes
+  video_near_duplicates: yes
+  photo_hash_threshold: 7
+  video_hash_threshold: 9
+  preserve_video_near_duplicates: yes
+
+quality_scoring:
+  require_keeper_manifest: yes
+  preserve_all_videos: yes
+
+story_builder:
+  ai:
+    enabled: no
+    backend: none
+
+album_builder:
+  output_dir: input_data/trips/sample/curated/06 Album Builder
+  require_faces: yes
+  variants:
+    complete:
+      enabled: yes
+      title: Sample Memory Album
+
+video_processing:
+  transcript:
+    backend: none
+
+selected_timeline:
+  media_sets: [beach]
+  output_dir: input_data/trips/sample/curated/08 Selected Timeline
+  semantic_similarity:
+    enabled: no
+  face_filter:
+    reject_person_without_face: yes
+    backend: opencv_yunet
+    model_path: models/face_detection_yunet_2023mar.onnx
+
+reel_builder:
+  media_sets: [beach]
+  output_dir: input_data/trips/sample/curated/09 Reel Builder
+  variants:
+    instagram_reel:
+      enabled: yes
+      target_duration_seconds: 90
+      max_duration_seconds: 120
+    full_highlight:
+      enabled: yes
+      target_duration_seconds: 180
+      max_duration_seconds: 180
+  music:
+    enabled: no
+    track_path: null
+
+documentary_builder:
+  output_dir: input_data/trips/sample/curated/10 Documentary Builder
+  render:
+    enabled: no

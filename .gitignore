@@ -1,0 +1,63 @@
+# Python/runtime
+.venv/
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# OS/editor noise
+.DS_Store
+*.swp
+*.swo
+
+# Generated workflow reports and manifests.
+# The engine recreates this folder during runs.
+MemoryCurator/
+
+# Keep raw/generated trip media out of Git.
+# The sample config is intentionally tracked for open-source quickstart.
+input_data/**
+!input_data/
+!input_data/trips/
+!input_data/trips/*/
+!input_data/trips/*/config/
+!input_data/trips/*/config/**
+input_data/trips/bali/config/**
+
+# Keep empty sample folders so the quickstart can run immediately.
+!input_data/trips/sample/data/
+!input_data/trips/sample/data/*/
+!input_data/trips/sample/data/*/.gitkeep
+!input_data/trips/sample/curated/
+!input_data/trips/sample/curated/.gitkeep
+
+# Large generated media/exports should stay local even outside input_data.
+*.mp4
+*.mov
+*.MOV
+*.m4v
+*.avi
+*.heic
+*.HEIC
+*.jpg
+*.jpeg
+*.JPG
+*.JPEG
+*.png
+*.PNG
+*.pdf
+
+# Documentation images are curated project artifacts and should be tracked.
+!docs/*.png
+!docs/*.PNG
+!docs/*.jpg
+!docs/*.jpeg
+!docs/*.pdf
+
+# Runtime caches are reproducible and should not be versioned.
+MemoryCurator/**/.cache/
+MemoryCurator/**/*_cache.json
+MemoryCurator/**/semantic_embedding_cache.json
+MemoryCurator/**/segment_audit_cache.json
