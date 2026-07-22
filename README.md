@@ -45,16 +45,17 @@ memory-curator prompt-guide
 
 The phase prompts live in [prompts](prompts), and the usage guide is [docs/PROMPT_ONLY_WORKFLOW.md](docs/PROMPT_ONLY_WORKFLOW.md). This is useful for people who want Codex, ChatGPT, or another coding agent to implement one phase, port the idea to another language, or customize the architecture for a different media workflow.
 
-## Open Source Readiness
+## Privacy and Data Safety
 
-MemoryCurator is licensed under Apache 2.0. Before publishing personal runs or accepting broad usage, review [docs/OPEN_SOURCE_CHECKLIST.md](docs/OPEN_SOURCE_CHECKLIST.md).
+MemoryCurator is designed so personal media stays local by default. The repository includes a sample trip config, but your real photos, videos, generated outputs, and private trip files should remain on your machine unless you intentionally publish them.
 
 Important defaults:
 
 - Original media under `input_data/trips/<trip>/data` is ignored by Git.
 - Generated media under `input_data/trips/<trip>/curated` is ignored by Git.
 - Runtime caches are ignored by Git.
-- Trip configs under `input_data/trips/<trip>/config` are tracked so a workflow can be reproduced.
+- The sample config under `input_data/trips/sample/config` is tracked for quickstart usage.
+- Personal trip configs can contain private paths, activity names, or metadata choices, so review them before sharing.
 - Documentation images under `docs/` may be tracked intentionally.
 
 ## Architecture Diagram
