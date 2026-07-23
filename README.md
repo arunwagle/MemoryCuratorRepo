@@ -205,4 +205,6 @@ Optional/advanced dependencies include OpenCV, FFmpeg helpers, Pillow/HEIC suppo
 
 ## License
 
-MemoryCurator is licensed under the [Apache License 2.0](LICENSE).
+Copyright (c) 2026 Arun Wagle.
+
+MemoryCurator is licensed under the [MIT License](LICENSE).

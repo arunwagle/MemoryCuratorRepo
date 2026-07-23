@@ -1,6 +1,6 @@
 # Open Source Release Checklist
 
-MemoryCurator already has an Apache 2.0 license. Before making the repository public or announcing it broadly, use this checklist.
+MemoryCurator uses the MIT License. Before making the repository public or announcing it broadly, use this checklist.
 
 ## Privacy and Data Safety
 
